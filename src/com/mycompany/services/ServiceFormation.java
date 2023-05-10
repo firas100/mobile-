@@ -159,7 +159,8 @@ String url = Statics.BASE_URL + "/UpdateJson/" + formation.getId()
                 req.removeResponseListener(this);
             }
         });
-   NetworkManager.getInstance().addToQueueAndWait(req);//execution ta3 request sinon yet3ada chy dima nal9awha
+        
+    NetworkManager.getInstance().addToQueueAndWait(req);//execution ta3 request sinon yet3ada chy dima nal9awha
     return resultOk;
         
     }}

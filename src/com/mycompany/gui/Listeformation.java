@@ -110,11 +110,11 @@ public class Listeformation extends BaseForm {
         add(LayeredLayout.encloseIn(swipe, radioContainer));
 
         ButtonGroup barGroup = new ButtonGroup();
-        RadioButton mesListes = RadioButton.createToggle("Mes Reclamations", barGroup);
+        RadioButton mesListes = RadioButton.createToggle("Ajouter Formation", barGroup);
         mesListes.setUIID("SelectBar");
-        RadioButton liste = RadioButton.createToggle("Autres", barGroup);
+        RadioButton liste = RadioButton.createToggle("Formation", barGroup);
         liste.setUIID("SelectBar");
-        RadioButton partage = RadioButton.createToggle("Reclamer", barGroup);
+        RadioButton partage = RadioButton.createToggle("Graphique", barGroup);
         partage.setUIID("SelectBar");
         Label arrow = new Label(res.getImage("news-tab-down-arrow.png"), "Container");
 
@@ -140,8 +140,20 @@ public class Listeformation extends BaseForm {
             updateArrowPosition(partage, arrow);
         });
         bindButtonSelection(mesListes, arrow);
+        mesListes.addActionListener((e)->{
+                  new AjouterFormationForm(res).show();
+        });
         bindButtonSelection(liste, arrow);
-        bindButtonSelection(partage, arrow);
+        partage.addActionListener((e)->{
+                  new Listeformation(res).show();
+        });
+       
+        
+         bindButtonSelection(partage, arrow);
+                partage.addActionListener((e)->{
+                  new StatiqueFrom(res).show();
+                  
+        });
         // special case for rotation
         addOrientationListener(e -> {
             updateArrowPosition(barGroup.getRadioButton(barGroup.getSelectedIndex()), arrow);
@@ -271,7 +283,7 @@ public class Listeformation extends BaseForm {
             
             Dialog dig = new Dialog("Suppression");
             
-            if(dig.show("Suppression","Vous voulez supprimer ce reclamation ?","Annuler","Oui")) {
+            if(dig.show("Suppression","Vous voulez supprimer ce Formation ?","Annuler","Oui")) {
                 dig.dispose();
                 
             } else {

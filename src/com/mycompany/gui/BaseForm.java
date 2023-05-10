@@ -83,6 +83,6 @@ public class BaseForm extends Form {
         ));
         
         tb.addMaterialCommandToSideMenu("Newsfeed", FontImage.MATERIAL_UPDATE, e -> new NewsfeedForm(res).show());
-
+       
     }
 }
